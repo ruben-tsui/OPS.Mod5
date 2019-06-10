@@ -234,8 +234,8 @@ class Window(QtWidgets.QDialog):
         T_C  = self.T_C
         T_P  = self.T_P
         #seed = np.random.randint(0,65535)
-        α = float(self.txt_weightC.toPlainText())
-        β = float(self.txt_weightP.toPlainText())
+        α = self.spin_C.value()
+        β = self.spin_P.value()
         for i in range(0, self.simSteps+1):
             if i == 0:
                 current_spot = S0
@@ -262,8 +262,8 @@ class Window(QtWidgets.QDialog):
         σ    = self.σ
         T_C  = self.T_C
         T_P  = self.T_P
-        α = float(self.txt_weightC.toPlainText())
-        β = float(self.txt_weightP.toPlainText())
+        α = self.spin_C.value()
+        β = self.spin_P.value()
         for point in self.circleCoords:
             y_call = bsm.bs_call_price(point[0], K_C, r, q, σ, T_C*(1-(self.simCurrentStep)/(self.simSteps)))
             y_put  = bsm.bs_put_price(point[0], K_P, r, q, σ, T_P*(1-(self.simCurrentStep)/(self.simSteps)))
@@ -311,8 +311,8 @@ class Window(QtWidgets.QDialog):
         k = self.simCurrentStep  # this is used a lot below 
 
         # Get the x, y units of Call and Put options, respectively
-        α = float(self.txt_weightC.toPlainText())  # x
-        β = float(self.txt_weightP.toPlainText())  # y
+        α = self.spin_C.value()  # x
+        β = self.spin_P.value()  # y
         #print(f"α={α}, β={β}")
 
         # Set minimum and maximum x-axis values for s1 (main plot)
