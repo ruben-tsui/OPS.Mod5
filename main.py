@@ -112,6 +112,17 @@ class Window(QtWidgets.QDialog):
         self.label_sigma.setText(f"σ = {self.σ}") 
         self.label_mu.setText(f"μ = {self.μ}") 
 
+        # Changing weights of C and P
+        self.spin_C.valueChanged.connect(self.on_valueChange_spin_C)
+        self.spin_P.valueChanged.connect(self.on_valueChange_spin_P)
+
+    def on_valueChange_spin_C(self):
+        self.on_click_NewSim()
+        self.showGraph()
+    def on_valueChange_spin_P(self):
+        self.on_click_NewSim()
+        self.showGraph()
+
     def on_click_ignore_TVOM(self):
         if self.radio_ignore_TVOM.isChecked():
             #print(f"ignore checked!")
